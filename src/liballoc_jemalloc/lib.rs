@@ -75,7 +75,9 @@ mod contents {
     // add fast paths for low alignment values.
     #[cfg(all(any(target_arch = "arm",
                   target_arch = "mips",
-                  target_arch = "powerpc")))]
+                  target_arch = "powerpc",
+                  all(target_arch = "riscv",
+                      target_pointer_width = "32"))))]
     const MIN_ALIGN: usize = 8;
     #[cfg(all(any(target_arch = "x86",
                   target_arch = "x86_64",
@@ -83,7 +85,9 @@ mod contents {
                   target_arch = "powerpc64",
                   target_arch = "mips64",
                   target_arch = "s390x",
-                  target_arch = "sparc64")))]
+                  target_arch = "sparc64",
+                  all(target_arch = "riscv",
+                      target_pointer_width = "64"))))]
     const MIN_ALIGN: usize = 16;
 
     // MALLOCX_ALIGN(a) macro

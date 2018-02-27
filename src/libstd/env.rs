@@ -929,6 +929,11 @@ mod arch {
     pub const ARCH: &'static str = "mips64";
 }
 
+#[cfg(target_arch = "riscv")]
+mod arch {
+    pub const ARCH: &'static str = "riscv";
+}
+
 #[cfg(target_arch = "powerpc")]
 mod arch {
     pub const ARCH: &'static str = "powerpc";

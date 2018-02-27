@@ -92,7 +92,9 @@ mod arch {
     }
 }
 
-#[cfg(target_arch = "mips")]
+#[cfg(any(target_arch = "mips",
+          all(target_arch = "riscv",
+              target_pointer_width = "32")))]
 mod arch {
     use os::raw::{c_long, c_ulong};
 
@@ -159,7 +161,9 @@ mod arch {
 
 #[cfg(any(target_arch = "mips64",
           target_arch = "s390x",
-          target_arch = "sparc64"))]
+          target_arch = "sparc64",
+          all(target_arch = "riscv",
+              target_pointer_width = "64")))]
 mod arch {
     pub use libc::{off_t, ino_t, nlink_t, blksize_t, blkcnt_t, stat, time_t};
 }

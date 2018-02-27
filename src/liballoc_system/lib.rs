@@ -32,14 +32,18 @@
               target_arch = "powerpc",
               target_arch = "powerpc64",
               target_arch = "asmjs",
-              target_arch = "wasm32")))]
+              target_arch = "wasm32",
+              all(target_arch = "riscv",
+                  target_pointer_width = "32"))))]
 #[allow(dead_code)]
 const MIN_ALIGN: usize = 8;
 #[cfg(all(any(target_arch = "x86_64",
               target_arch = "aarch64",
               target_arch = "mips64",
               target_arch = "s390x",
-              target_arch = "sparc64")))]
+              target_arch = "sparc64",
+              all(target_arch = "riscv",
+                  target_pointer_width = "64"))))]
 #[allow(dead_code)]
 const MIN_ALIGN: usize = 16;
 
