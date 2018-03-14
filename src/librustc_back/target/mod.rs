@@ -236,6 +236,8 @@ supported_targets! {
     ("armv7-unknown-cloudabi-eabihf", armv7_unknown_cloudabi_eabihf),
     ("i686-unknown-cloudabi", i686_unknown_cloudabi),
     ("x86_64-unknown-cloudabi", x86_64_unknown_cloudabi),
+
+    ("riscv32im-unknown-none", riscv32im_unknown_none),
 }
 
 /// Everything `rustc` knows about how to compile for a specific target.
